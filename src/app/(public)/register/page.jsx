@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import GoogleIcon from "/public/icons/GoogleIcon";
-//import { useAuthContext } from "@/context/AuthContext";
+import { useAuthContext } from "@/contex/AuthContext";
+
 
 const Register = () => {
   const [info, setInfo] = useState({
@@ -10,16 +11,16 @@ const Register = () => {
     email: "",
     password: "",
   });
-  // const { createUser, signUpProvider } = useAuthContext();
+   const { createUser, signUpProvider } = useAuthContext();
 
   const handleChange = (e) =>
     setInfo({ ...info, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //const { firstName, lastName, email, password } = info;
-    //const displayName = `${firstName} ${lastName}`;
-    //createUser(email, password, displayName);
+    const { firstName, lastName, email, password } = info;
+    const displayName = `${firstName} ${lastName}`;
+    createUser(email, password, displayName);
     console.log({ info });
   };
   return (
