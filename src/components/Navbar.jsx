@@ -17,7 +17,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   //const currentUser = { displayName: "merve" };
-  const { currentUser } = useAuthContext();
+  const { currentUser, logOut } = useAuthContext();
   const [showBackground, setShowBackground] = useState(false);
 
   useEffect(() => {
@@ -123,6 +123,7 @@ export default function Navbar() {
                           focus ? "bg-gray-100" : "",
                           "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
                         )}
+                        onClick={() => logOut()}
                       >
                         Log out
                       </span>
